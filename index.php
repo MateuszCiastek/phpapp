@@ -15,7 +15,7 @@ input[type=submit] {width: 8em;  height: 2em;}
 <?php
 /* index.php */
 require_once('soap/lib/nusoap.php');
-$wsdl = 'http://dodomu.ddns.net/app/soap/index.php?wsdl';
+$wsdl = 'http://localhost/app/soap/index.php?wsdl';
 $client = new nusoap_client($wsdl, 'wsdl');
 $params = array('time_format' => 'Y-m-d D H:i:s T');
 $response1 = $client->call('getTime', $params);
@@ -27,11 +27,7 @@ PHP Today: <?php echo date('Y-m-d H:i:s T');?><br>
 PHP Your IP: <?php echo $_SERVER["REMOTE_ADDR"];?><br>
 PHP Your hostname: <?php echo gethostbyaddr($_SERVER['REMOTE_ADDR']);?><br><br>
 
-Logins: <?php echo shell_exec ("last | head -n 1");?><br>
-
-<a href="linfo">Linfo</a><br>
 <a href="soap">SOAP</a><br><br>
-<a href="../">Home</a><br>
 </body>
 </html>
 
