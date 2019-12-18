@@ -15,7 +15,7 @@ input[type=submit] {width: 8em;  height: 2em;}
 <?php
 /* index.php */
 require_once('soap/lib/nusoap.php');
-$wsdl = 'http://localhost/app/soap/index.php?wsdl';
+$wsdl = 'http://127.0.0.1/soap/index.php?wsdl';
 $client = new nusoap_client($wsdl, 'wsdl');
 $params = array('time_format' => 'Y-m-d D H:i:s T');
 $response1 = $client->call('getTime', $params);
